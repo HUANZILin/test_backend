@@ -29,12 +29,21 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+// CORS API FILTER
+$routes->options('/(:any)', 'Home::options', ['filter' => 'ApiAccessFilter']);
+
+
+
 $routes->get('/', 'Home::index');
 
 $routes->get('/user', 'UserController::index');
 $routes->post('/user', 'UserController::create');
 $routes->put('/user/(:num)', 'UserController::update');
 $routes->delete('/user/(:num)', 'UserController::delete/$1');
+
+
+$routes->post('/plus', 'PlusController::create');
+$routes->put('/plus/(:num)', 'PlusController::update');
 
 /*
  * --------------------------------------------------------------------
