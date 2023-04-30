@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+
 use CodeIgniter\API\ResponseTrait;
 
 class Home extends BaseController
@@ -15,9 +16,18 @@ class Home extends BaseController
     public function options()
     {
         return $this->respond([
-            "status"=> 'on',
+            "status" => 'on',
             "request" => $this->request->getIPAddress()
         ]);
     }
 
+    public function apiFetch()
+    {
+        return view('api_fetch');
+    }
+
+    public function apiAxios()
+    {
+        return view('api_axios');
+    }
 }

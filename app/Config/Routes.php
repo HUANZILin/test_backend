@@ -45,6 +45,9 @@ $routes->delete('/user/(:num)', 'UserController::delete/$1');
 $routes->post('/plus', 'PlusController::create');
 $routes->put('/plus/(:num)', 'PlusController::update');
 
+$routes->get('/apiFetch', 'Home::apiFetch');
+$routes->get('/apiAxios', 'Home::apiAxios');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
